@@ -30,6 +30,7 @@ namespace RiskMatrixTool
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GlavniIzbornik));
             this.panel1 = new System.Windows.Forms.Panel();
             this.vjerojatnostPanel1 = new RiskMatrixTool.FormItems.VjerojatnostPanel.VjerojatnostPanel();
             this.ozbiljnostPanel1 = new RiskMatrixTool.FormItems.OzbiljnostPanel.OzbiljnostPanel();
@@ -45,6 +46,7 @@ namespace RiskMatrixTool
             // 
             // panel1
             // 
+            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
             this.panel1.Controls.Add(this.vjerojatnostPanel1);
             this.panel1.Controls.Add(this.ozbiljnostPanel1);
             this.panel1.Controls.Add(this.panel10);

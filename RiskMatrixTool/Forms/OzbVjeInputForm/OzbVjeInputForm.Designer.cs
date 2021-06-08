@@ -33,6 +33,7 @@ namespace RiskMatrixTool.Forms.OzbVjeInputForm
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OzbVjeInputForm));
             this.MagnitudaLabel = new System.Windows.Forms.Label();
             this.MagnitudaText = new System.Windows.Forms.TextBox();
             this.TrosakPojavaLabel = new System.Windows.Forms.Label();
@@ -49,43 +50,50 @@ namespace RiskMatrixTool.Forms.OzbVjeInputForm
             // MagnitudaLabel
             // 
             this.MagnitudaLabel.AutoSize = true;
-            this.MagnitudaLabel.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.MagnitudaLabel.BackColor = System.Drawing.Color.Transparent;
+            this.MagnitudaLabel.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.MagnitudaLabel.Location = new System.Drawing.Point(12, 17);
             this.MagnitudaLabel.Name = "MagnitudaLabel";
-            this.MagnitudaLabel.Size = new System.Drawing.Size(122, 30);
+            this.MagnitudaLabel.Size = new System.Drawing.Size(127, 30);
             this.MagnitudaLabel.TabIndex = 0;
             this.MagnitudaLabel.Text = "Magnituda:";
             // 
             // MagnitudaText
             // 
+            this.MagnitudaText.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.MagnitudaText.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.MagnitudaText.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.MagnitudaText.Location = new System.Drawing.Point(267, 14);
             this.MagnitudaText.Name = "MagnitudaText";
             this.MagnitudaText.Size = new System.Drawing.Size(100, 36);
             this.MagnitudaText.TabIndex = 1;
+            this.MagnitudaText.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // TrosakPojavaLabel
             // 
             this.TrosakPojavaLabel.AutoSize = true;
-            this.TrosakPojavaLabel.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TrosakPojavaLabel.BackColor = System.Drawing.Color.Transparent;
+            this.TrosakPojavaLabel.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.TrosakPojavaLabel.Location = new System.Drawing.Point(12, 74);
             this.TrosakPojavaLabel.Name = "TrosakPojavaLabel";
-            this.TrosakPojavaLabel.Size = new System.Drawing.Size(193, 30);
+            this.TrosakPojavaLabel.Size = new System.Drawing.Size(198, 30);
             this.TrosakPojavaLabel.TabIndex = 2;
             this.TrosakPojavaLabel.Text = "TrosakPojavaLabel:";
             // 
             // OpisLabel
             // 
             this.OpisLabel.AutoSize = true;
-            this.OpisLabel.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.OpisLabel.BackColor = System.Drawing.Color.Transparent;
+            this.OpisLabel.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.OpisLabel.Location = new System.Drawing.Point(12, 201);
             this.OpisLabel.Name = "OpisLabel";
-            this.OpisLabel.Size = new System.Drawing.Size(62, 30);
+            this.OpisLabel.Size = new System.Drawing.Size(63, 30);
             this.OpisLabel.TabIndex = 3;
             this.OpisLabel.Text = "Opis:";
             // 
             // TrosakPojavaTextBox
             // 
+            this.TrosakPojavaTextBox.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.TrosakPojavaTextBox.Location = new System.Drawing.Point(267, 83);
             this.TrosakPojavaTextBox.Name = "TrosakPojavaTextBox";
             this.TrosakPojavaTextBox.Size = new System.Drawing.Size(347, 96);
@@ -94,6 +102,8 @@ namespace RiskMatrixTool.Forms.OzbVjeInputForm
             // 
             // OpisTextBox
             // 
+            this.OpisTextBox.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.OpisTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.OpisTextBox.Location = new System.Drawing.Point(267, 210);
             this.OpisTextBox.Name = "OpisTextBox";
             this.OpisTextBox.Size = new System.Drawing.Size(347, 96);
@@ -102,28 +112,34 @@ namespace RiskMatrixTool.Forms.OzbVjeInputForm
             // 
             // ResetButton
             // 
+            this.ResetButton.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.ResetButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ResetButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.ResetButton.Location = new System.Drawing.Point(267, 322);
             this.ResetButton.Name = "ResetButton";
             this.ResetButton.Size = new System.Drawing.Size(100, 45);
             this.ResetButton.TabIndex = 15;
             this.ResetButton.Text = "Resetiraj";
-            this.ResetButton.UseVisualStyleBackColor = true;
+            this.ResetButton.UseVisualStyleBackColor = false;
             this.ResetButton.Click += new System.EventHandler(this.ResetButton_Click);
             // 
             // InputButton
             // 
+            this.InputButton.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.InputButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.InputButton.Location = new System.Drawing.Point(514, 322);
             this.InputButton.Name = "InputButton";
             this.InputButton.Size = new System.Drawing.Size(100, 45);
             this.InputButton.TabIndex = 16;
             this.InputButton.Text = "Unesi";
-            this.InputButton.UseVisualStyleBackColor = true;
+            this.InputButton.UseVisualStyleBackColor = false;
             this.InputButton.Click += new System.EventHandler(this.InputButton_Click);
             // 
             // VjerojatnostOzbiljnostData
             // 
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.VjerojatnostOzbiljnostData.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.VjerojatnostOzbiljnostData.BackgroundColor = System.Drawing.SystemColors.ScrollBar;
             this.VjerojatnostOzbiljnostData.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
@@ -161,18 +177,21 @@ namespace RiskMatrixTool.Forms.OzbVjeInputForm
             // 
             // BrisiButton
             // 
+            this.BrisiButton.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.BrisiButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.BrisiButton.Location = new System.Drawing.Point(518, 559);
             this.BrisiButton.Name = "BrisiButton";
             this.BrisiButton.Size = new System.Drawing.Size(100, 45);
             this.BrisiButton.TabIndex = 18;
             this.BrisiButton.Text = "Obrisi";
-            this.BrisiButton.UseVisualStyleBackColor = true;
+            this.BrisiButton.UseVisualStyleBackColor = false;
             this.BrisiButton.Click += new System.EventHandler(this.BrisiButton_Click);
             // 
             // OzbVjeInputForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(630, 610);
             this.Controls.Add(this.BrisiButton);
             this.Controls.Add(this.VjerojatnostOzbiljnostData);

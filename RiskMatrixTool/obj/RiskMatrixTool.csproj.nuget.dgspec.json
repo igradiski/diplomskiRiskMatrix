@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\VSgit\\RiskMatrixTool\\RiskMatrixTool.csproj": {}
+    "E:\\diplomskiRiskMatrix\\RiskMatrixTool\\RiskMatrixTool.csproj": {}
   },
   "projects": {
-    "D:\\VSgit\\RiskMatrixTool\\RiskMatrixTool.csproj": {
+    "E:\\diplomskiRiskMatrix\\RiskMatrixTool\\RiskMatrixTool.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\VSgit\\RiskMatrixTool\\RiskMatrixTool.csproj",
+        "projectUniqueName": "E:\\diplomskiRiskMatrix\\RiskMatrixTool\\RiskMatrixTool.csproj",
         "projectName": "RiskMatrixTool",
-        "projectPath": "D:\\VSgit\\RiskMatrixTool\\RiskMatrixTool.csproj",
-        "packagesPath": "C:\\Users\\igzrinski.INTRANET\\.nuget\\packages\\",
-        "outputPath": "D:\\VSgit\\RiskMatrixTool\\obj\\",
+        "projectPath": "E:\\diplomskiRiskMatrix\\RiskMatrixTool\\RiskMatrixTool.csproj",
+        "packagesPath": "C:\\Users\\Ivor\\.nuget\\packages\\",
+        "outputPath": "E:\\diplomskiRiskMatrix\\RiskMatrixTool\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\igzrinski.INTRANET\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Ivor\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

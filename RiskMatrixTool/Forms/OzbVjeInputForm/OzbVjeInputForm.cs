@@ -46,7 +46,6 @@ namespace RiskMatrixTool.Forms.OzbVjeInputForm
             MagnitudaText.Clear();
             TrosakPojavaTextBox.Clear();
             OpisTextBox.Clear();
-            MagnitudaText.BackColor = Color.White;
         }
 
         private void InputButton_Click(object sender, EventArgs e)
@@ -100,7 +99,6 @@ namespace RiskMatrixTool.Forms.OzbVjeInputForm
         private Boolean provjeriParametre(VjerojatnostOzbiljnostObjekt noviObjekt)
         {
             Boolean vecPostoji = false;
-            Boolean ispravanBroj = (noviObjekt.Magnituda >= 1 && noviObjekt.Magnituda <= 5) ? true : false;
             if (noviObjekt.Opis != null && noviObjekt.TrosakPojava1 != null)
             {
                 if (tipForme == "o")
@@ -108,7 +106,7 @@ namespace RiskMatrixTool.Forms.OzbVjeInputForm
                 else
                     vecPostoji = listaVjerojatnosti.Any(obj => obj.Magnituda == noviObjekt.Magnituda);
             }
-            return !vecPostoji && ispravanBroj;
+            return !vecPostoji;
         }
 
         private void BrisiButton_Click(object sender, EventArgs e)
