@@ -38,6 +38,7 @@ namespace RiskMatrixTool.Forms.OzbVjeInputForm
         {
             this.Text = tipForme == "o" ? "Forma za unos parametara ozbiljnosti" : "Forma za unos parametara vjerojatnosti";
             TrosakPojavaLabel.Text = tipForme == "o" ? "Trošak:" : "Broj pojava:";
+            ucitajPodatkeNaGrid();
         }
 
         private void ResetButton_Click(object sender, EventArgs e)
@@ -51,7 +52,6 @@ namespace RiskMatrixTool.Forms.OzbVjeInputForm
         private void InputButton_Click(object sender, EventArgs e)
         {
             VjerojatnostOzbiljnostObjekt noviObjekt = new VjerojatnostOzbiljnostObjekt();
-
             try
             {
                 noviObjekt.Magnituda = int.Parse(MagnitudaText.Text);
@@ -60,7 +60,6 @@ namespace RiskMatrixTool.Forms.OzbVjeInputForm
             {
                 noviObjekt.Magnituda = 0;
                 MessageBox.Show("Unesite magnitudu u intervalu od 1 do 5 !");
-                MagnitudaText.BackColor = Color.DarkRed;
             }
             noviObjekt.Opis = OpisTextBox.Text;
             noviObjekt.TrosakPojava1 = TrosakPojavaTextBox.Text;
@@ -75,19 +74,67 @@ namespace RiskMatrixTool.Forms.OzbVjeInputForm
             {
                 MessageBox.Show("Fale potrebni parametri ili je magnituda u krivom formatu!");
             }
+
+            ucitajPodatkeNaGrid();
+        }
+
+        private void ucitajPodatkeNaGrid()
+        {
+            var dataSource = new BindingSource();
+            if (tipForme == "o")
+                dataSource.DataSource = listaOzbiljnosti.OrderBy(x => x.Magnituda).ToList();
+            else
+                dataSource.DataSource = listaVjerojatnosti.OrderBy(x => x.Magnituda).ToList();
+            VjerojatnostOzbiljnostData.DataSource = dataSource;
+            PrilagodiDataGrid();
+        }
+
+        private void PrilagodiDataGrid()
+        {
+            VjerojatnostOzbiljnostData.Columns[0].Width = 80;
+            VjerojatnostOzbiljnostData.Columns[1].Width = 260;
+            VjerojatnostOzbiljnostData.Columns[2].Width = 260;
+            VjerojatnostOzbiljnostData.Columns[1].HeaderText = tipForme == "o" ? "Trošak" : "Broj godišnjih pojava";
         }
 
         private Boolean provjeriParametre(VjerojatnostOzbiljnostObjekt noviObjekt)
         {
             Boolean vecPostoji = false;
-            if(noviObjekt.Opis.Length > 0 && noviObjekt.TrosakPojava1.Length > 0 && noviObjekt.Magnituda != 0)
+            Boolean ispravanBroj = (noviObjekt.Magnituda >= 1 && noviObjekt.Magnituda <= 5) ? true : false;
+            if (noviObjekt.Opis != null && noviObjekt.TrosakPojava1 != null)
             {
                 if (tipForme == "o")
                     vecPostoji = listaOzbiljnosti.Any(obj => obj.Magnituda == noviObjekt.Magnituda);
                 else
                     vecPostoji = listaVjerojatnosti.Any(obj => obj.Magnituda == noviObjekt.Magnituda);
             }
-            return !vecPostoji;
+            return !vecPostoji && ispravanBroj;
+        }
+
+        private void BrisiButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                VjerojatnostOzbiljnostObjekt objektZaBrisanje = VjerojatnostOzbiljnostData.SelectedRows[0].DataBoundItem as VjerojatnostOzbiljnostObjekt;
+                if (objektZaBrisanje != null)
+                {
+                    if (tipForme == "o")
+                        listaOzbiljnosti.RemoveAll(x => x.Magnituda == objektZaBrisanje.Magnituda);
+                    else
+                    {
+                        listaVjerojatnosti.RemoveAll(x => x.Magnituda == objektZaBrisanje.Magnituda);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Niste odabrali zapis za brisanje!");
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Niste odabrali zapis za brisanje!");
+            }
+            ucitajPodatkeNaGrid();
         }
     }
 }

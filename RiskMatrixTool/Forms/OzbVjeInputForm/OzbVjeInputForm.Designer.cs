@@ -29,6 +29,10 @@ namespace RiskMatrixTool.Forms.OzbVjeInputForm
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.MagnitudaLabel = new System.Windows.Forms.Label();
             this.MagnitudaText = new System.Windows.Forms.TextBox();
             this.TrosakPojavaLabel = new System.Windows.Forms.Label();
@@ -37,15 +41,16 @@ namespace RiskMatrixTool.Forms.OzbVjeInputForm
             this.OpisTextBox = new System.Windows.Forms.RichTextBox();
             this.ResetButton = new System.Windows.Forms.Button();
             this.InputButton = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.VjerojatnostOzbiljnostData = new System.Windows.Forms.DataGridView();
+            this.BrisiButton = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.VjerojatnostOzbiljnostData)).BeginInit();
             this.SuspendLayout();
             // 
             // MagnitudaLabel
             // 
             this.MagnitudaLabel.AutoSize = true;
             this.MagnitudaLabel.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.MagnitudaLabel.Location = new System.Drawing.Point(12, 48);
+            this.MagnitudaLabel.Location = new System.Drawing.Point(12, 17);
             this.MagnitudaLabel.Name = "MagnitudaLabel";
             this.MagnitudaLabel.Size = new System.Drawing.Size(122, 30);
             this.MagnitudaLabel.TabIndex = 0;
@@ -54,7 +59,7 @@ namespace RiskMatrixTool.Forms.OzbVjeInputForm
             // MagnitudaText
             // 
             this.MagnitudaText.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.MagnitudaText.Location = new System.Drawing.Point(267, 45);
+            this.MagnitudaText.Location = new System.Drawing.Point(267, 14);
             this.MagnitudaText.Name = "MagnitudaText";
             this.MagnitudaText.Size = new System.Drawing.Size(100, 36);
             this.MagnitudaText.TabIndex = 1;
@@ -63,7 +68,7 @@ namespace RiskMatrixTool.Forms.OzbVjeInputForm
             // 
             this.TrosakPojavaLabel.AutoSize = true;
             this.TrosakPojavaLabel.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TrosakPojavaLabel.Location = new System.Drawing.Point(12, 105);
+            this.TrosakPojavaLabel.Location = new System.Drawing.Point(12, 74);
             this.TrosakPojavaLabel.Name = "TrosakPojavaLabel";
             this.TrosakPojavaLabel.Size = new System.Drawing.Size(193, 30);
             this.TrosakPojavaLabel.TabIndex = 2;
@@ -73,7 +78,7 @@ namespace RiskMatrixTool.Forms.OzbVjeInputForm
             // 
             this.OpisLabel.AutoSize = true;
             this.OpisLabel.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.OpisLabel.Location = new System.Drawing.Point(12, 232);
+            this.OpisLabel.Location = new System.Drawing.Point(12, 201);
             this.OpisLabel.Name = "OpisLabel";
             this.OpisLabel.Size = new System.Drawing.Size(62, 30);
             this.OpisLabel.TabIndex = 3;
@@ -81,7 +86,7 @@ namespace RiskMatrixTool.Forms.OzbVjeInputForm
             // 
             // TrosakPojavaTextBox
             // 
-            this.TrosakPojavaTextBox.Location = new System.Drawing.Point(267, 114);
+            this.TrosakPojavaTextBox.Location = new System.Drawing.Point(267, 83);
             this.TrosakPojavaTextBox.Name = "TrosakPojavaTextBox";
             this.TrosakPojavaTextBox.Size = new System.Drawing.Size(347, 96);
             this.TrosakPojavaTextBox.TabIndex = 4;
@@ -89,7 +94,7 @@ namespace RiskMatrixTool.Forms.OzbVjeInputForm
             // 
             // OpisTextBox
             // 
-            this.OpisTextBox.Location = new System.Drawing.Point(267, 241);
+            this.OpisTextBox.Location = new System.Drawing.Point(267, 210);
             this.OpisTextBox.Name = "OpisTextBox";
             this.OpisTextBox.Size = new System.Drawing.Size(347, 96);
             this.OpisTextBox.TabIndex = 5;
@@ -97,7 +102,7 @@ namespace RiskMatrixTool.Forms.OzbVjeInputForm
             // 
             // ResetButton
             // 
-            this.ResetButton.Location = new System.Drawing.Point(267, 377);
+            this.ResetButton.Location = new System.Drawing.Point(267, 322);
             this.ResetButton.Name = "ResetButton";
             this.ResetButton.Size = new System.Drawing.Size(100, 45);
             this.ResetButton.TabIndex = 15;
@@ -107,7 +112,7 @@ namespace RiskMatrixTool.Forms.OzbVjeInputForm
             // 
             // InputButton
             // 
-            this.InputButton.Location = new System.Drawing.Point(514, 377);
+            this.InputButton.Location = new System.Drawing.Point(514, 322);
             this.InputButton.Name = "InputButton";
             this.InputButton.Size = new System.Drawing.Size(100, 45);
             this.InputButton.TabIndex = 16;
@@ -115,21 +120,62 @@ namespace RiskMatrixTool.Forms.OzbVjeInputForm
             this.InputButton.UseVisualStyleBackColor = true;
             this.InputButton.Click += new System.EventHandler(this.InputButton_Click);
             // 
-            // dataGridView1
+            // VjerojatnostOzbiljnostData
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 436);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(602, 210);
-            this.dataGridView1.TabIndex = 17;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.VjerojatnostOzbiljnostData.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.VjerojatnostOzbiljnostData.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.VjerojatnostOzbiljnostData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.VjerojatnostOzbiljnostData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.VjerojatnostOzbiljnostData.DefaultCellStyle = dataGridViewCellStyle3;
+            this.VjerojatnostOzbiljnostData.ImeMode = System.Windows.Forms.ImeMode.Off;
+            this.VjerojatnostOzbiljnostData.Location = new System.Drawing.Point(16, 373);
+            this.VjerojatnostOzbiljnostData.Name = "VjerojatnostOzbiljnostData";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.VjerojatnostOzbiljnostData.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.VjerojatnostOzbiljnostData.RowHeadersWidth = 10;
+            this.VjerojatnostOzbiljnostData.RowTemplate.Height = 25;
+            this.VjerojatnostOzbiljnostData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.VjerojatnostOzbiljnostData.Size = new System.Drawing.Size(602, 180);
+            this.VjerojatnostOzbiljnostData.TabIndex = 17;
+            // 
+            // BrisiButton
+            // 
+            this.BrisiButton.Location = new System.Drawing.Point(518, 559);
+            this.BrisiButton.Name = "BrisiButton";
+            this.BrisiButton.Size = new System.Drawing.Size(100, 45);
+            this.BrisiButton.TabIndex = 18;
+            this.BrisiButton.Text = "Obrisi";
+            this.BrisiButton.UseVisualStyleBackColor = true;
+            this.BrisiButton.Click += new System.EventHandler(this.BrisiButton_Click);
             // 
             // OzbVjeInputForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(630, 658);
-            this.Controls.Add(this.dataGridView1);
+            this.ClientSize = new System.Drawing.Size(630, 610);
+            this.Controls.Add(this.BrisiButton);
+            this.Controls.Add(this.VjerojatnostOzbiljnostData);
             this.Controls.Add(this.InputButton);
             this.Controls.Add(this.ResetButton);
             this.Controls.Add(this.OpisTextBox);
@@ -142,7 +188,7 @@ namespace RiskMatrixTool.Forms.OzbVjeInputForm
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Unos ";
             this.Load += new System.EventHandler(this.OzbVjeInputForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.VjerojatnostOzbiljnostData)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -158,6 +204,7 @@ namespace RiskMatrixTool.Forms.OzbVjeInputForm
         private System.Windows.Forms.RichTextBox OpisTextBox;
         private System.Windows.Forms.Button ResetButton;
         private System.Windows.Forms.Button InputButton;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView VjerojatnostOzbiljnostData;
+        private System.Windows.Forms.Button BrisiButton;
     }
 }
