@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace RiskMatrixTool.Forms.OzbVjeInputForm
 {
-    class VjerojatnostOzbiljnostObjekt
+    public class VjerojatnostOzbiljnostObjekt
     {
+        
 
         private int magnituda;
 

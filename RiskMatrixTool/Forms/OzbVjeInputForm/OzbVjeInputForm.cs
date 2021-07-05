@@ -13,21 +13,44 @@ namespace RiskMatrixTool.Forms.OzbVjeInputForm
 
     public partial class OzbVjeInputForm : Form
     {
-        private static List<VjerojatnostOzbiljnostObjekt> listaVjerojatnosti = new List<VjerojatnostOzbiljnostObjekt>();
+        private List<VjerojatnostOzbiljnostObjekt> listaVjerojatnosti = new List<VjerojatnostOzbiljnostObjekt>();
+        internal List<VjerojatnostOzbiljnostObjekt> ListaVjerojatnosti { get => listaVjerojatnosti; set => listaVjerojatnosti = value; }
+        internal List<VjerojatnostOzbiljnostObjekt> ListaOzbiljnosti { get => listaOzbiljnosti; set => listaOzbiljnosti = value; }
 
-        private static List<VjerojatnostOzbiljnostObjekt> listaOzbiljnosti = new List<VjerojatnostOzbiljnostObjekt>();
+        private List<VjerojatnostOzbiljnostObjekt> listaOzbiljnosti = new List<VjerojatnostOzbiljnostObjekt>();
+
+        private List<String> listaMogucihMagnituda = new List<String>();
 
         private String tipForme = "";
+
+
         public OzbVjeInputForm()
         {
             InitializeComponent();
+            
         }
         public OzbVjeInputForm(String tipForme)
         {
             InitializeComponent();
             this.tipForme = tipForme;
             pripremiEkran();
-            
+            unesiMagnitude();
+            ucitajMagnitude();
+        }
+        private void unesiMagnitude()
+        {
+            listaMogucihMagnituda.Add("0");
+            listaMogucihMagnituda.Add("1");
+            listaMogucihMagnituda.Add("2");
+            listaMogucihMagnituda.Add("3");
+            listaMogucihMagnituda.Add("4");
+        }
+
+        private void ucitajMagnitude()
+        {
+            var dataSource = new BindingSource();
+            dataSource.DataSource = listaMogucihMagnituda;
+            MagnitudaCombo.DataSource = dataSource;
         }
 
         private void OzbVjeInputForm_Load(object sender, EventArgs e)
@@ -43,7 +66,6 @@ namespace RiskMatrixTool.Forms.OzbVjeInputForm
 
         private void ResetButton_Click(object sender, EventArgs e)
         {
-            MagnitudaText.Clear();
             TrosakPojavaTextBox.Clear();
             OpisTextBox.Clear();
         }
@@ -53,7 +75,10 @@ namespace RiskMatrixTool.Forms.OzbVjeInputForm
             VjerojatnostOzbiljnostObjekt noviObjekt = new VjerojatnostOzbiljnostObjekt();
             try
             {
-                noviObjekt.Magnituda = int.Parse(MagnitudaText.Text);
+                //noviObjekt.Magnituda = int.Parse(MagnitudaText.Text);
+                noviObjekt.Magnituda = int.Parse(MagnitudaCombo.SelectedValue.ToString());
+                listaMogucihMagnituda.Remove(noviObjekt.Magnituda.ToString());
+                ucitajMagnitude();
             }
             catch
             {
@@ -65,6 +90,7 @@ namespace RiskMatrixTool.Forms.OzbVjeInputForm
             if (provjeriParametre(noviObjekt))
             {
                 if (tipForme == "o")
+                    
                     listaOzbiljnosti.Add(noviObjekt);
                 else
                     listaVjerojatnosti.Add(noviObjekt);
@@ -75,8 +101,13 @@ namespace RiskMatrixTool.Forms.OzbVjeInputForm
             }
 
             ucitajPodatkeNaGrid();
+            provjeriBrojMagnituda();
         }
-
+        
+        private void  provjeriBrojMagnituda()
+        {
+            InputButton.Visible = listaMogucihMagnituda.Count == 0 ? false : true;
+        }
         private void ucitajPodatkeNaGrid()
         {
             var dataSource = new BindingSource();
@@ -117,10 +148,18 @@ namespace RiskMatrixTool.Forms.OzbVjeInputForm
                 if (objektZaBrisanje != null)
                 {
                     if (tipForme == "o")
+                    {
                         listaOzbiljnosti.RemoveAll(x => x.Magnituda == objektZaBrisanje.Magnituda);
+                        listaMogucihMagnituda.Add(objektZaBrisanje.Magnituda.ToString());
+                        ucitajMagnitude();
+                        provjeriBrojMagnituda();
+                    }
                     else
                     {
                         listaVjerojatnosti.RemoveAll(x => x.Magnituda == objektZaBrisanje.Magnituda);
+                        listaMogucihMagnituda.Add(objektZaBrisanje.Magnituda.ToString());
+                        ucitajMagnitude();
+                        provjeriBrojMagnituda();
                     }
                 }
                 else
@@ -133,6 +172,32 @@ namespace RiskMatrixTool.Forms.OzbVjeInputForm
                 MessageBox.Show("Niste odabrali zapis za brisanje!");
             }
             ucitajPodatkeNaGrid();
+        }
+
+        private void OzbVjeInputForm_Leave(object sender, EventArgs e)
+        {
+            
+        }
+
+        private bool ProvjeraIskoristenostiParametara()
+        {
+            return listaMogucihMagnituda.Count == 0 ? false : true;
+        }
+
+        private void OzbVjeInputForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (ProvjeraIskoristenostiParametara())
+            {
+                if (MessageBox.Show("Niste ispunili sve parametre! Jeste li sigurni da želite zatvoriti formu?"
+                , "Nedostaju parametri", MessageBoxButtons.YesNo) == DialogResult.No)
+                {
+                    e.Cancel = true;
+                }
+                else
+                {
+                    e.Cancel = false;
+                }
+            }
         }
     }
 }
